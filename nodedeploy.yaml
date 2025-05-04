@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    release: beta
+    type: poc
+  name: user-register-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: poc
+  template:
+    metadata:
+      labels:
+        release: beta
+        type: poc
+      name: user-register
+    spec:
+      containers:
+        - image: "sornsomavatey/user-register:latest"
+          name: user-register-container
+          ports:
+            - containerPort: 3001
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    release: beta
+    type: poc
+  name: user-login-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: poc
+  template:
+    metadata:
+      labels:
+        release: beta
+        type: poc
+      name: user-login
+    spec:
+      containers:
+        - image: "sornsomavatey/user-login:latest"
+          name: user-login-container
+          ports:
+            - containerPort: 3002
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    release: beta
+    type: poc
+  name: user-create-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: poc
+  template:
+    metadata:
+      labels:
+        release: beta
+        type: poc
+      name: user-create
+    spec:
+      containers:
+        - image: "sornsomavatey/user-create:latest"
+          name: user-create-container
+          ports:
+            - containerPort: 3003
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    release: beta
+    type: poc
+  name: user-view-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: poc
+  template:
+    metadata:
+      labels:
+        release: beta
+        type: poc
+      name: user-view
+    spec:
+      containers:
+        - image: "sornsomavatey/user-view:latest"
+          name: user-view-container
+          ports:
+            - containerPort: 3004
